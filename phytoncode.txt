@@ -1,0 +1,303 @@
+import requests
+from bs4 import BeautifulSoup
+import csv
+import nltk
+from nltk.probability import FreqDist
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+nltk.download('punkt')
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?search_key=2019').text
+csv_file = open('kitapinceleme.csv','w',newline="")
+csv_writer=csv.writer(csv_file)
+csv_writer.writerow(['başlık','kisa icerik'])
+
+soup = BeautifulSoup(source,'lxml') 
+
+for li in soup.find_all('div',class_='item'):
+   kitapadi=li.find('a', class_='title')
+   icerik = li.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi.text,icerik.text])
+
+   
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=2&search_key=2019').text
+soup = BeautifulSoup(source,'lxml')
+
+for li2 in soup.find_all('div',class_='item'):
+   kitapadi2=li2.find('a', class_='title')
+   icerik2 = li2.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi2.text,icerik2.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=3&search_key=2019').text
+soup = BeautifulSoup(source,'lxml')
+
+for li3 in soup.find_all('div',class_='item'):
+   kitapadi3=li3.find('a', class_='title')
+   icerik3 = li3.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi3.text,icerik3.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=4&search_key=2019').text
+soup = BeautifulSoup(source,'lxml')
+
+for li4 in soup.find_all('div',class_='item'):
+   kitapadi4=li4.find('a', class_='title')
+   icerik4 = li4.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi4.text,icerik4.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li5 in soup.find_all('div',class_='item'):
+   kitapadi5=li5.find('a', class_='title')
+   icerik5 = li5.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi5.text,icerik5.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=2&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li6 in soup.find_all('div',class_='item'):
+   kitapadi6=li6.find('a', class_='title')
+   icerik6 = li6.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi6.text,icerik6.text])
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=3&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li7 in soup.find_all('div',class_='item'):
+   kitapadi7=li7.find('a', class_='title')
+   icerik7 = li7.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi7.text,icerik7.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=4&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li8 in soup.find_all('div',class_='item'):
+   kitapadi8=li8.find('a', class_='title')
+   icerik8 = li8.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi8.text,icerik8.text])
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=5&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li9 in soup.find_all('div',class_='item'):
+   kitapadi9=li9.find('a', class_='title')
+   icerik9 = li9.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi9.text,icerik9.text])
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=7&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li10 in soup.find_all('div',class_='item'):
+   kitapadi10=li10.find('a', class_='title')
+   icerik10 = li10.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi10.text,icerik10.text])
+ 
+    
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=8&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li11 in soup.find_all('div',class_='item'):
+   kitapadi11=li11.find('a', class_='title')
+   icerik11 = li11.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi11.text,icerik11.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=9&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li12 in soup.find_all('div',class_='item'):
+   kitapadi12=li12.find('a', class_='title')
+   icerik12 = li12.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi12.text,icerik12.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=10&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li13 in soup.find_all('div',class_='item'):
+   kitapadi13=li13.find('a', class_='title')
+   icerik13 = li13.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi13.text,icerik13.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=11&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li14 in soup.find_all('div',class_='item'):
+   kitapadi14=li14.find('a', class_='title')
+   icerik14 = li14.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi14.text,icerik14.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=12&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li15 in soup.find_all('div',class_='item'):
+   kitapadi15=li15.find('a', class_='title')
+   icerik15 = li15.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi15.text,icerik15.text])
+
+   
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=13&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li16 in soup.find_all('div',class_='item'):
+   kitapadi16=li16.find('a', class_='title')
+   icerik16 = li16.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi16.text,icerik16.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=14&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li17 in soup.find_all('div',class_='item'):
+   kitapadi17=li17.find('a', class_='title')
+   icerik17 = li17.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi17.text,icerik17.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=15&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li18 in soup.find_all('div',class_='item'):
+   kitapadi18=li18.find('a', class_='title')
+   icerik18 = li18.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi18.text,icerik18.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=16&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li19 in soup.find_all('div',class_='item'):
+   kitapadi19=li19.find('a', class_='title')
+   icerik19 = li19.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi19.text,icerik19.text])
+   
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=17&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li20 in soup.find_all('div',class_='item'):
+   kitapadi20=li20.find('a', class_='title')
+   icerik20 = li20.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi20.text,icerik20.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=18&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li21 in soup.find_all('div',class_='item'):
+   kitapadi21=li21.find('a', class_='title')
+   icerik21 = li21.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi21.text,icerik21.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=19&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li22 in soup.find_all('div',class_='item'):
+   kitapadi22=li22.find('a', class_='title')
+   icerik22 = li22.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi22.text,icerik22.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=20&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li23 in soup.find_all('div',class_='item'):
+   kitapadi23=li23.find('a', class_='title')
+   icerik23 = li23.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi23.text,icerik23.text])
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=21&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li24 in soup.find_all('div',class_='item'):
+   kitapadi24=li24.find('a', class_='title')
+   icerik24 = li24.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi24.text,icerik24.text])
+
+
+
+
+source = requests.get('https://www.yenicaggazetesi.com.tr/search_result.php?page=22&search_key=2020&sort_field=date').text
+soup = BeautifulSoup(source,'lxml')
+
+for li25 in soup.find_all('div',class_='item'):
+   kitapadi25=li25.find('a', class_='title')
+   icerik25 = li25.find('div', class_='short_content')
+   csv_writer.writerow([kitapadi25.text,icerik25.text])
+
+
+
+import string 
+csv_file.close()
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+stop_words = set(stopwords.words('turkish')) 
+csv_file = open('haberfix.csv','w',newline="")
+csv_writer=csv.writer(csv_file)
+
+with open('kitapinceleme.csv', 'r') as csvfile:  
+    reader = csv.reader(csvfile)
+    for row in reader:
+       for cumle in row:
+          df=cumle
+          df.lower()
+          exclude = set(string.punctuation)
+          df = ''.join(ch for ch in df if ch not in exclude)
+          tokenizedwords = nltk.word_tokenize(df)
+          filtered_sentence = [w for w in tokenizedwords if not w in stop_words]
+          csv_writer.writerow([filtered_sentence]) 
+      
+csv_file.close()
+
+
+csv_file =open('kitapinceleme.csv', 'a+', newline='')
+csv_writer=csv.writer(csv_file)
+with open('haberfix.csv', 'r') as csvfile: 
+    reader = csv.reader(csvfile)
+    for row in reader:
+       for cumle in row:
+          df=cumle
+          csv_writer.writerow([df])
